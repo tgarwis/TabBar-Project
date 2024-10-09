@@ -14,7 +14,7 @@ class _PremiumState extends State<Premium> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(Icons.diamond, size: 100,),
-        Text("Let's try premium for free trial in 7 days")
+        Text("These apps are premium ")
       ],
     );
   }

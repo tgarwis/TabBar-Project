@@ -1,8 +1,8 @@
-import 'package:uts_mobile/explore.dart';
-import 'package:uts_mobile/home.dart';
-import 'package:uts_mobile/installed.dart';
-import 'package:uts_mobile/premium.dart';
 import 'package:flutter/material.dart';
+import 'package:uts_mobile/installed.dart';
+import 'package:uts_mobile/explore.dart';
+import 'package:uts_mobile/profile.dart';
+import 'package:uts_mobile/premium.dart';
 
 void main(List<String> args) {
   runApp(const AppStore());
@@ -54,10 +54,12 @@ class _CustomTabBarState extends State<CustomTabBar>
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: IconButton(
-                icon: Icon(Icons.settings, color: Colors.white),
-                onPressed: () {}),
-          ),
+            child: Row(
+              children:[
+                Icon(Icons.settings, color: Colors.white),
+                Icon(Icons.person, color: Colors.white),
+            ]),
+          )
         ],
         title: Text('Tampilan tab ke -${controller.index + 1}',
             style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
@@ -69,16 +71,16 @@ class _CustomTabBarState extends State<CustomTabBar>
           indicatorColor: Colors.white,
           unselectedLabelColor: Colors.black45,
           tabs: [
-            Tab(text: "Home", icon: Icon(Icons.home)),
-            Tab(text: "Explore", icon: Icon(Icons.explore)),
-            Tab(text: "Premium", icon: Icon(Icons.diamond)),
             Tab(text: "Installed", icon: Icon(Icons.download)),
+            Tab(text: "Explore", icon: Icon(Icons.explore)),
+            Tab(text: "Profile", icon: Icon(Icons.person)),
+            Tab(text: "Premium", icon: Icon(Icons.diamond)),
           ],
         ),
       ),
       body: TabBarView(
         controller: controller,
-        children: [Home(), Explore(), Premium(), Installed()],
+        children: [Installed(), Explore(),Profile(),Premium()],
       ),
     );
   }
